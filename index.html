@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+		<script type="text/javascript" src="javascript/jquery.js"></script>
+		<link rel="icon" type="../image/png" sizes="25x17" href="images/logo16x16.png">
+		<link rel="manifest" href="/manifest.json">
+        <title>Medidor de Talaricagem</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="javascript/scriptpagina.js"></script>
+		<script type="text/javascript" src="javascript/jquery.maskedinput.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+    </head>
+    <body id="home" data-spy="scroll" data-target=".navbar" data-offset="60">
+        <div class="jumbotron">	
+			<div class="interna" style="background-color: #dddddd;" align="justify">
+                <div id="contact" class="container-fluid bg-grey">
+                <div class="row">
+                        <div class="row">
+        					<div class="col-sm-12">
+				        		<h2>
+                                    Medidor do quanto talarico você é! 
+                                </h2>
+                                <h3>
+                                    Suponha você com nome de Adriel e seu amigo com nome de Felipe. Você namorava com a Rainara, terminaram e o Felipe está pegando ela agora. Preencha o seguinte formulário e veja se ele é um talarico filha da puta ou não.
+                                </h3>
+                                <hr>
+						        <h4>
+                                </h4>
+                                <br>					
+        					</div>
+                        </div>
+                        <div>
+                            <div class="col-sm-8 slideanim">
+							    <div class="row">
+						    		<div class="col-sm-12 form-group">
+                                        <h4>
+                                            Quanto tempo durou o relacionamento entre Adriel e Rainara?
+                                        </h4>
+					        			<input class="form-control" id="tempoRelacionamento" name="tempoRelacionamento" placeholder="Anos de relacionamento" type="text" required>
+                                    </div>
+                                    <div class="col-sm-12 form-group">
+                                        <h4>
+                                            Adriel e Rainara eram casados?
+                                        </h4>
+                                        <select class="form-control" name="casados" id="casados">
+                                            <option value="sim">Sim</option>
+                                            <option value="nao">Não</option>
+                                          </select>
+				        			</div>
+			        				<div class="col-sm-12 form-group">
+                                        <h4>
+                                            Em um nível de 0 a 10, o quanto Adriel gostava da Rainara?
+                                        </h4>
+					        			<input class="form-control" id="nivelGostar" name="nivelGostar" placeholder="Nível de mozão" type="text" required>
+                                    </div>
+                                    <div class="col-sm-12 form-group">
+                                        <h4>
+                                            Em um nível de 0 a 10, o quanto Felipe era brother de Adriel?
+                                        </h4>
+					        			<input class="form-control" id="nivelBrother" name="nivelBrother" placeholder="Nível de mozão" type="text" required>
+				        			</div>
+		        				</div>
+	        					<div class="row">
+                                    <div class="col-sm-12 form-group">
+                                        <a href="#Resultado">
+                                            <button class="btn btn-default pull-right" type="submit" onclick="Calcular()">Enviar</button>
+                                        </a>
+							        </div>
+							    </div></h4>
+							</div>                            
+                        </div>
+                    </div>
+                        <div class="row" id="Resultado" style="color: #303030;">
+                        </div>
+			    </div>
+            </div>
+		</div>
+        <center>
+            <footer  class="bg-grey">
+                SunSale System
+            </footer>
+        </center>
+    </body>
+</html>
+
+<script>
+
+    function Calcular(){
+        const resposta = document.querySelector('#Resultado');
+
+        var anosRelacionamento = document.getElementById("tempoRelacionamento").value;
+        var casados = document.getElementById("casados").value;
+        var nivelGostar = document.getElementById("nivelGostar").value;
+        var nivelBrother = document.getElementById("nivelBrother").value;
+
+        var retorno= CalculaTalaricagem(anosRelacionamento, casados, nivelGostar, nivelBrother);
+        resposta.innerHTML = "";
+        resposta.innerHTML +=MontaResultado(retorno);
+    }
+
+</script>
