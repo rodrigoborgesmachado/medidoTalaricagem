@@ -1,6 +1,6 @@
 # Medidor de Talaricagem
 
-**Web site disponível em http://sunsalesystem.com.br/MedidorTalaricagem**
+**Web site disponível em http://medidortalarico.sunsale.com.br/**
 
 ## Considerações Gerais
 
